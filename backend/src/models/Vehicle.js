@@ -6,16 +6,16 @@ class Vehicle {
     /**
      * Create a new vehicle
      */
-        static async create(licensePlate, vehicleTypeId, ownerName, ownerContact) {
-                const id = uuidv4();
-                const normalized = sanitizeLicensePlate(licensePlate);
-                const sql = `
+    static async create(licensePlate, vehicleTypeId, ownerName, ownerContact) {
+        const id = uuidv4();
+        const normalized = sanitizeLicensePlate(licensePlate);
+        const sql = `
             INSERT INTO vehicles (id, license_plate, vehicle_type_id, owner_name, owner_contact)
             VALUES (?, ?, ?, ?, ?)
         `;
-                await db.run(sql, [id, normalized, vehicleTypeId, ownerName, ownerContact]);
-                return this.getById(id);
-        }
+        await db.run(sql, [id, normalized, vehicleTypeId, ownerName, ownerContact]);
+        return this.getById(id);
+    }
 
     /**
      * Get vehicle by ID
@@ -33,16 +33,16 @@ class Vehicle {
     /**
      * Get vehicle by license plate
      */
-        static async getByLicensePlate(licensePlate) {
-                const normalized = sanitizeLicensePlate(licensePlate);
-                const sql = `
+    static async getByLicensePlate(licensePlate) {
+        const normalized = sanitizeLicensePlate(licensePlate);
+        const sql = `
             SELECT v.*, vt.name as vehicle_type_name, vt.space_required, vt.hourly_rate
             FROM vehicles v
             LEFT JOIN vehicle_types vt ON v.vehicle_type_id = vt.id
             WHERE v.license_plate = ?
         `;
-                return db.get(sql, [normalized]);
-        }
+        return db.get(sql, [normalized]);
+    }
 
     /**
      * Get all vehicles
