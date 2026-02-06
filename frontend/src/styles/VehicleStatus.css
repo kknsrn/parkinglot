@@ -1,0 +1,309 @@
+/* Vehicle Status Component Styles */
+
+.vehicle-status-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-section {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+}
+
+.search-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.search-form {
+    display: flex;
+    gap: 12px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.search-form .btn {
+    padding: 12px 32px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-form .btn:hover:not(:disabled) {
+    background-color: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.search-form .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-weight: 500;
+}
+
+.alert-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border-left: 4px solid #c62828;
+}
+
+/* Results Section */
+.results-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #f0f0f0;
+    background-color: #fafafa;
+    padding: 0 32px;
+}
+
+.tab {
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    color: #999;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    margin-bottom: -2px;
+}
+
+.tab.active {
+    color: #2196f3;
+    border-bottom-color: #2196f3;
+}
+
+.tab:hover {
+    color: #2196f3;
+}
+
+.status-content,
+.history-content {
+    padding: 32px;
+}
+
+/* Vehicle Info */
+.vehicle-info,
+.parking-details {
+    margin-bottom: 32px;
+}
+
+.vehicle-info h3,
+.parking-details h3,
+.history-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-item .label {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.info-item .value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.info-item .status-parked {
+    color: #4caf50;
+    font-weight: 700;
+}
+
+.info-item .status-not_parked {
+    color: #2196f3;
+    font-weight: 700;
+}
+
+/* Fee Preview */
+.fee-preview {
+    margin-top: 20px;
+    padding: 16px;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+}
+
+.fee-preview h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 12px;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.preview-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.preview-item .label {
+    font-size: 11px;
+    color: #558b2f;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.preview-item .value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.preview-item .fee {
+    color: #1b5e20;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* History Table */
+.history-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+}
+
+table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+table td.fee {
+    color: #4caf50;
+    font-weight: 600;
+}
+
+.no-history {
+    padding: 32px;
+    text-align: center;
+    color: #999;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form input,
+    .search-form .btn {
+        width: 100%;
+    }
+
+    .tabs {
+        padding: 0;
+    }
+
+    .tab {
+        padding: 12px 16px;
+    }
+
+    .status-content,
+    .history-content {
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    table th,
+    table td {
+        padding: 8px;
+    }
+}
