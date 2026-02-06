@@ -36,9 +36,10 @@ class ParkingTransaction {
      */
     static async getActiveByVehicleId(vehicleId) {
         const sql = `
-      SELECT pt.*, v.license_plate, v.hourly_rate, ps.space_number, pf.floor_number
+      SELECT pt.*, v.license_plate, vt.hourly_rate, ps.space_number, pf.floor_number
       FROM parking_transactions pt
       LEFT JOIN vehicles v ON pt.vehicle_id = v.id
+      LEFT JOIN vehicle_types vt ON v.vehicle_type_id = vt.id
       LEFT JOIN parking_spaces ps ON pt.parking_space_id = ps.id
       LEFT JOIN parking_floors pf ON pt.floor_id = pf.id
       WHERE pt.vehicle_id = ? AND pt.status = 'active'
@@ -52,9 +53,10 @@ class ParkingTransaction {
      */
     static async getAll(status = 'all') {
         let sql = `
-      SELECT pt.*, v.license_plate, v.vehicle_type_name, ps.space_number, pf.floor_number
+      SELECT pt.*, v.license_plate, vt.name as vehicle_type_name, ps.space_number, pf.floor_number
       FROM parking_transactions pt
       LEFT JOIN vehicles v ON pt.vehicle_id = v.id
+      LEFT JOIN vehicle_types vt ON v.vehicle_type_id = vt.id
       LEFT JOIN parking_spaces ps ON pt.parking_space_id = ps.id
       LEFT JOIN parking_floors pf ON pt.floor_id = pf.id
     `;
